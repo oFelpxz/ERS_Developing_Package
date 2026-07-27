@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "ERS Digital Consulting — SAP & Logistics Consulting",
+    "description": "Boutique SAP consulting firm specialized in logistics, transportation and supply chain. Enterprise-grade projects delivered by senior squads."
+  },
+  "nav": {
+    "solutions": "Solutions",
+    "methodology": "Methodology",
+    "cases": "Cases",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Talk to a specialist"
+  },
+  "hero": {
+    "eyebrow": "SAP Consulting · Logistics · Digital Transformation",
+    "title": "Critical SAP projects.",
+    "titleAccent": "Senior squads deliver.",
+    "subtitle": "Fully senior squads own every project end-to-end — from design to live operation — for companies that cannot afford to get it wrong.",
+    "ctaPrimary": "Talk to a specialist",
+    "ctaSecondary": "See cases"
+  },
+  "social": {
+    "label": "Partners and clients who trust our delivery"
+  },
+  "about": {
+    "eyebrow": "About ERS",
+    "title": "Connecting technology, data and performance.",
+    "body": "We are a consulting firm specialized in SAP solutions and digital transformation, focused on driving efficiency and integration across business operations. We work on logistics process management and optimization, strategic resource allocation and modernization of corporate environments — with lean squads of senior consultants, delivering the standard of a major integrator, without the overhead.",
+    "pillars": [
+      { "title": "Specialization", "desc": "Vertical focus on SAP TM, BN4L and logistics." },
+      { "title": "Seniority", "desc": "100% SAP-certified senior consultants." },
+      { "title": "Execution", "desc": "Lean squads, short cycles, clear governance." },
+      { "title": "Performance", "desc": "Measurable delivery, enterprise-grade, without the big-integrator overhead." }
+    ]
+  },
+  "indicators": {
+    "items": [
+      { "value": "10+", "label": "years in SAP" },
+      { "value": "50+", "label": "projects delivered" },
+      { "value": "30+", "label": "enterprise clients" },
+      { "value": "100%", "label": "senior consultants" }
+    ]
+  },
+  "solutions": {
+    "eyebrow": "What we do",
+    "title": "Your journey to high-performance solutions starts here.",
+    "items": [
+      {
+        "title": "SAP Transportation Management (TM)",
+        "desc": "Complete solutions focused on efficient transportation planning and execution. Our approach optimizes routes, reduces logistics costs and increases operational visibility — combining technical expertise with strategic vision to turn transportation into a competitive edge."
+      },
+      {
+        "title": "SAP Business Network for Logistics (BN4L)",
+        "desc": "Smart integration between shippers, carriers and logistics partners. Through a collaborative platform, we ensure real-time visibility, process automation and stronger connectivity across the entire logistics network."
+      },
+      {
+        "title": "SAP Implementation & Support",
+        "desc": "We cover every stage of the SAP journey: from case study, through process design, to implementation. Our methodology combines agility, governance and technical excellence — and continuous post go-live support ensures stability and evolution."
+      },
+      {
+        "title": "SAP Resource Allocation",
+        "desc": "We optimize your company's operational capacity by acting directly on planning and the strategic distribution of teams and assets, ensuring the right resources are available at the right time."
+      }
+    ]
+  },
+  "methodology": {
+    "eyebrow": "How we deliver",
+    "title": "A structured journey, with no surprises.",
+    "steps": [
+      { "title": "Diagnosis", "desc": "Process understanding, pain points and SAP maturity assessment." },
+      { "title": "Planning", "desc": "Blueprint, scope, timeline and governance." },
+      { "title": "Implementation", "desc": "Configuration, integrations and testing with a senior squad." },
+      { "title": "Go-Live", "desc": "Assisted cutover, hypercare and stabilization." },
+      { "title": "Continuous Evolution", "desc": "Improvement roadmap, new modules and optimizations." }
+    ]
+  },
+  "cases": {
+    "eyebrow": "Cases",
+    "title": "Real projects. Measurable results.",
+    "rochalog": {
+      "tags": ["Logistics", "SAP TM", "IBM Partnership"],
+      "title": "Rochalog: SAP TM delivered in 8 months with a 3-consultant squad.",
+      "summary": "In strategic partnership with IBM, we designed and implemented the SAP TM solution for Rochalog, optimizing the sale of transportation services and the contracting of road freight — from blueprint to Go-Live and continuous evolution.",
+      "timeline": ["Blueprint", "Configuration", "Go-Live", "Ongoing support"],
+      "goLiveLabel": "Go-Live confirmed",
+      "metrics": [
+        { "value": "8 months", "label": "from blueprint to Go-Live" },
+        { "value": "2–3", "label": "consultants in the squad" },
+        { "value": "End-to-end", "label": "design, cutover and support" }
+      ],
+      "differentialsTitle": "What set our delivery apart",
+      "differentials": [
+        "Tailored solution aligned with the SAP standard — no unnecessary customizations.",
+        "Agility with a senior squad — large transformations don't require bloated teams.",
+        "Continuous improvement post Go-Live — immediate operational gains."
+      ],
+      "cta": "Read the full case"
+    }
+  },
+  "clients": {
+    "eyebrow": "Who trusts ERS",
+    "title": "Companies that trust our delivery.",
+    "subtitle": "We serve leaders in logistics, transportation, industry and retail.",
+    "logos": ["IBM", "Talke", "Bridgestone", "Rochalog", "Braskem", "Volkswagen", "InBetta", "Rivelli", "SimpleWMS", "Serangeli", "T-Systems", "Coopercitrus"]
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications and strategic partners.",
+    "certsTitle": "SAP Certifications",
+    "partnersTitle": "Strategic partners",
+    "certs": [
+      "SAP Certified Application Associate — TM",
+      "SAP Certified Development Associate",
+      "SAP Activate Project Manager",
+      "SAP S/4HANA Logistics"
+    ],
+    "partners": ["IBM", "SAP", "Microsoft"]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Common questions about how we work.",
+    "items": [
+      {
+        "q": "How does the lean squad model work?",
+        "a": "We assemble teams of 2 to 4 senior consultants per project, sized to the real scope — no junior consultants in training or redundant roles. This lowers cost and speeds up decisions without compromising quality."
+      },
+      {
+        "q": "How long does a SAP TM or BN4L project take?",
+        "a": "It varies with scope, but full implementation projects typically run 6 to 10 months, from blueprint to Go-Live. Support and continuous evolution are contracted per cycle or on demand."
+      },
+      {
+        "q": "Do you work with companies that already have SAP running?",
+        "a": "Yes. Beyond greenfield implementations, we handle roll-outs, upgrades, sustaining and evolution of existing SAP environments, with a focus on logistics and transportation."
+      },
+      {
+        "q": "How does the partnership with IBM work?",
+        "a": "We act as a specialized squad within IBM-led projects, complementing delivery with deep technical expertise in SAP TM and BN4L — as in the Rochalog case."
+      },
+      {
+        "q": "Can we hire just consultant allocation?",
+        "a": "Yes. Besides closed-scope projects, we offer senior SAP consultants on demand, in flexible specialized body-shop models."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk about your SAP project.",
+    "subtitle": "Tell us about the challenge. Within 1 business day, a senior consultant will reach out for an initial conversation — no strings attached.",
+    "channels": {
+      "email": "admin@ers-it.com",
+      "phone": "+55 (11) 94167-6547",
+      "whatsapp": "+55 (11) 94167-6547",
+      "address": "Av. Brigadeiro Faria Lima, 1811 — suite 918, Jardim Paulistano, São Paulo/SP, Brazil"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Work email",
+      "company": "Company",
+      "role": "Role",
+      "message": "How can we help?",
+      "submit": "Send message",
+      "reply": "We reply within 1 business day.",
+      "success": "Message sent. We'll be in touch shortly.",
+      "error": "We couldn't send your message. Please try again or use another channel.",
+      "errorFallbackCta": "Send by email"
+    }
+  },
+  "footer": {
+    "tagline": "SAP consulting specialized in logistics and digital transformation.",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "columns": {
+      "solutions": "Solutions",
+      "company": "Company",
+      "contact": "Contact"
+    }
+  }
+}

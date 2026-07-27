@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "ERS Digital Consulting — Consultoría SAP y Logística",
+    "description": "Consultoría boutique SAP especializada en logística, transporte y cadena de suministro. Proyectos enterprise entregados por squads sénior."
+  },
+  "nav": {
+    "solutions": "Soluciones",
+    "methodology": "Metodología",
+    "cases": "Casos",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Hablar con un especialista"
+  },
+  "hero": {
+    "eyebrow": "Consultoría SAP · Logística · Transformación Digital",
+    "title": "Proyectos SAP críticos.",
+    "titleAccent": "Squads sénior entregan.",
+    "subtitle": "Squads 100% séniores asumen cada proyecto de punta a punta — del diseño a la operación en producción — para empresas que no pueden fallar.",
+    "ctaPrimary": "Hablar con un especialista",
+    "ctaSecondary": "Ver casos"
+  },
+  "social": {
+    "label": "Socios y clientes que confían en nuestra ejecución"
+  },
+  "about": {
+    "eyebrow": "Sobre ERS",
+    "title": "Conectando tecnología, datos y performance.",
+    "body": "Somos una consultoría especializada en soluciones SAP y transformación digital, enfocada en impulsar la eficiencia y la integración en las operaciones empresariales. Actuamos en la gestión y optimización de procesos logísticos, asignación estratégica de recursos y modernización de entornos corporativos — con squads enxutas de consultores sénior, entregando el estándar de una gran integradora, sin su overhead.",
+    "pillars": [
+      { "title": "Especialización", "desc": "Foco vertical en SAP TM, BN4L y logística." },
+      { "title": "Senioridad", "desc": "100% consultores sénior certificados SAP." },
+      { "title": "Ejecución", "desc": "Squads enxutas, ciclos cortos, gobernanza clara." },
+      { "title": "Performance", "desc": "Entrega medible, estándar enterprise, sin el overhead de las grandes integradoras." }
+    ]
+  },
+  "indicators": {
+    "items": [
+      { "value": "+10", "label": "años de actuación en SAP" },
+      { "value": "+50", "label": "proyectos entregados" },
+      { "value": "+30", "label": "clientes enterprise" },
+      { "value": "100%", "label": "consultores sénior" }
+    ]
+  },
+  "solutions": {
+    "eyebrow": "Qué hacemos",
+    "title": "Tu camino hacia soluciones de alto desempeño empieza aquí.",
+    "items": [
+      {
+        "title": "SAP Transportation Management (TM)",
+        "desc": "Soluciones completas, enfocadas en la planificación y ejecución eficiente del transporte. Nuestro enfoque permite optimizar rutas, reducir costos logísticos y aumentar la visibilidad de las operaciones — combinando conocimiento técnico y visión estratégica."
+      },
+      {
+        "title": "SAP Business Network for Logistics (BN4L)",
+        "desc": "Integración inteligente entre embarcadores, transportistas y socios logísticos. A través de una plataforma colaborativa, garantizamos visibilidad en tiempo real, automatización de procesos y mayor conectividad entre todos los eslabones de la red logística."
+      },
+      {
+        "title": "Implementación y Soporte SAP",
+        "desc": "Actuamos en todas las etapas del recorrido SAP: desde el estudio de caso, pasando por el diseño de procesos hasta la implementación. Nuestra metodología une agilidad, gobernanza y excelencia técnica — y el soporte continuo post go-live garantiza estabilidad y evolución."
+      },
+      {
+        "title": "Asignación de Recursos SAP",
+        "desc": "Optimizamos la capacidad operativa de tu empresa, actuando directamente en la planificación y distribución estratégica de equipos y activos, para garantizar que los recursos correctos estén disponibles en el momento correcto."
+      }
+    ]
+  },
+  "methodology": {
+    "eyebrow": "Cómo entregamos",
+    "title": "Un recorrido estructurado, sin sorpresas.",
+    "steps": [
+      { "title": "Diagnóstico", "desc": "Comprensión de procesos, dolores y madurez SAP." },
+      { "title": "Planificación", "desc": "Blueprint, alcance, cronograma y gobernanza." },
+      { "title": "Implementación", "desc": "Configuración, integraciones y pruebas con squad sénior." },
+      { "title": "Go-Live", "desc": "Cutover asistido, hypercare y estabilización." },
+      { "title": "Evolución Continua", "desc": "Roadmap de mejoras, nuevos módulos y optimizaciones." }
+    ]
+  },
+  "cases": {
+    "eyebrow": "Casos",
+    "title": "Proyectos reales. Resultados medibles.",
+    "rochalog": {
+      "tags": ["Logística", "SAP TM", "Alianza IBM"],
+      "title": "Rochalog: SAP TM implementado en 8 meses, con squad de 3 consultores.",
+      "summary": "En alianza estratégica con IBM, diseñamos e implementamos la solución SAP TM para Rochalog, optimizando la venta de servicios de transporte y la contratación de fletes terrestres — del blueprint al Go-Live y evolución continua.",
+      "timeline": ["Blueprint", "Configuración", "Go-Live", "Soporte continuo"],
+      "goLiveLabel": "Go-Live confirmado",
+      "metrics": [
+        { "value": "8 meses", "label": "del blueprint al Go-Live" },
+        { "value": "2–3", "label": "consultores en la squad" },
+        { "value": "End-to-end", "label": "diseño, cutover y soporte" }
+      ],
+      "differentialsTitle": "El diferencial de nuestra actuación",
+      "differentials": [
+        "Solución a medida, alineada con el estándar SAP — sin customizaciones innecesarias.",
+        "Agilidad con squad sénior — las grandes transformaciones no exigen equipos inflados.",
+        "Mejora continua post Go-Live — ganancias inmediatas en la operación."
+      ],
+      "cta": "Leer el caso completo"
+    }
+  },
+  "clients": {
+    "eyebrow": "Quiénes confían en ERS",
+    "title": "Empresas que confían en nuestra ejecución.",
+    "subtitle": "Atendemos a líderes en logística, transporte, industria y retail.",
+    "logos": ["IBM", "Talke", "Bridgestone", "Rochalog", "Braskem", "Volkswagen", "InBetta", "Rivelli", "SimpleWMS", "Serangeli", "T-Systems", "Coopercitrus"]
+  },
+  "certifications": {
+    "eyebrow": "Credenciales",
+    "title": "Certificaciones y socios estratégicos.",
+    "certsTitle": "Certificaciones SAP",
+    "partnersTitle": "Socios estratégicos",
+    "certs": [
+      "SAP Certified Application Associate — TM",
+      "SAP Certified Development Associate",
+      "SAP Activate Project Manager",
+      "SAP S/4HANA Logistics"
+    ],
+    "partners": ["IBM", "SAP", "Microsoft"]
+  },
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Dudas comunes sobre cómo trabajamos.",
+    "items": [
+      {
+        "q": "¿Cómo funciona el modelo de squad enxuta?",
+        "a": "Armamos equipos de 2 a 4 consultores sénior por proyecto, dimensionados para el alcance real — sin asignar juniors en formación ni roles redundantes. Esto reduce costos y acelera decisiones sin sacrificar calidad."
+      },
+      {
+        "q": "¿Cuánto tiempo lleva un proyecto de SAP TM o BN4L?",
+        "a": "Varía según el alcance, pero los proyectos de implementación completa suelen tomar entre 6 y 10 meses, del blueprint al Go-Live. El soporte y la evolución continua se contratan por ciclo o bajo demanda."
+      },
+      {
+        "q": "¿Atienden empresas que ya tienen SAP implementado?",
+        "a": "Sí. Además de implementaciones desde cero, trabajamos en roll-outs, upgrades, mantenimiento y evolución de entornos SAP existentes, con foco en logística y transporte."
+      },
+      {
+        "q": "¿Cómo es la alianza con IBM?",
+        "a": "Actuamos como squad especializada dentro de proyectos liderados por IBM, complementando la entrega con profundidad técnica en SAP TM y BN4L — como en el caso Rochalog."
+      },
+      {
+        "q": "¿Es posible contratar solo asignación de consultores?",
+        "a": "Sí. Además de proyectos cerrados, ofrecemos consultores SAP sénior bajo demanda, en modelos flexibles de body shop especializado."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Hablemos sobre tu proyecto SAP.",
+    "subtitle": "Cuéntanos el desafío. En hasta 1 día hábil, un consultor sénior te contactará para una conversación inicial — sin compromiso.",
+    "channels": {
+      "email": "admin@ers-it.com",
+      "phone": "+55 (11) 94167-6547",
+      "whatsapp": "+55 (11) 94167-6547",
+      "address": "Av. Brigadeiro Faria Lima, 1811 — oficina 918, Jardim Paulistano, São Paulo/SP, Brasil"
+    },
+    "form": {
+      "name": "Nombre",
+      "email": "Email corporativo",
+      "company": "Empresa",
+      "role": "Cargo",
+      "message": "¿Cómo podemos ayudar?",
+      "submit": "Enviar mensaje",
+      "reply": "Respondemos en hasta 1 día hábil.",
+      "success": "Mensaje enviado. Pronto nos pondremos en contacto.",
+      "error": "No fue posible enviar. Inténtalo de nuevo o usa otro canal.",
+      "errorFallbackCta": "Enviar por correo"
+    }
+  },
+  "footer": {
+    "tagline": "Consultoría SAP especializada en logística y transformación digital.",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "columns": {
+      "solutions": "Soluciones",
+      "company": "Empresa",
+      "contact": "Contacto"
+    }
+  }
+}

@@ -24,8 +24,14 @@ export function LogisticsGlobe({ className = "" }: { className?: string }) {
 
   // Tier is resolved from the viewport, then re-resolved on resize. Scene
   // config (camera, density, route count) keys off this — not CSS scaling.
+  //
+  // `?noglobe=1` leaves the tier null, so the WebGL scene is never mounted and
+  // the hero keeps the static fallback. A diagnostic switch: it lets the same
+  // deploy be A/B tested on a real device, which is the only way to confirm
+  // whether the canvas is what stalls painting on iOS.
   useEffect(() => {
-    const resolve = () => setTier(tierFor(window.innerWidth));
+    const disabled = new URLSearchParams(window.location.search).get("noglobe") === "1";
+    const resolve = () => setTier(disabled ? null : tierFor(window.innerWidth));
     resolve();
 
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");

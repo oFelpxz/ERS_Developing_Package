@@ -4,6 +4,7 @@ import { Footer } from "./footer";
 import { WhatsAppFloat } from "./whatsapp-float";
 import { ScrollProgress } from "./scroll-progress";
 import { GridRules } from "./grid-rules";
+import { Atmosphere } from "./atmosphere";
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/locales";
 
@@ -19,6 +20,8 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
         Skip to content
       </a>
 
+      {/* Two promoted background layers, painted once and composited thereafter. */}
+      <Atmosphere />
       {/* The drawing sheet everything is set on. */}
       <GridRules />
 

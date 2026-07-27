@@ -22,10 +22,49 @@ type MotionTag =
   | "h3";
 
 /**
- * One observer contract for every entrance in the site.
- * Fires once, then unobserves — reveals are not scroll-linked state.
- * Thresholds follow the skill's Scroll Reveal "Standard" tier (top 85%).
+ * A single IntersectionObserver shared by every reveal on the page.
+ *
+ * One observer per element meant ~60 instances all delivering callbacks onto the
+ * same main thread. Sharing one keeps the callback work proportional to what
+ * actually crossed the viewport, not to how many elements exist.
+ *
+ * The threshold is deliberately near-zero and there is no negative rootMargin:
+ * the old `threshold: 0.15` plus `0px 0px -10% 0px` pushed the trigger point
+ * well inside the viewport, so a fast scroll blew past an element before it was
+ * ever asked to appear.
  */
+type RevealCallback = () => void;
+
+let sharedObserver: IntersectionObserver | null = null;
+const callbacks = new WeakMap<Element, RevealCallback>();
+
+function observeOnce(el: Element, cb: RevealCallback) {
+  if (typeof IntersectionObserver === "undefined") {
+    cb();
+    return () => {};
+  }
+
+  sharedObserver ??= new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        callbacks.get(entry.target)?.();
+        callbacks.delete(entry.target);
+        sharedObserver?.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.01, rootMargin: "0px 0px 5% 0px" }
+  );
+
+  callbacks.set(el, cb);
+  sharedObserver.observe(el);
+
+  return () => {
+    callbacks.delete(el);
+    sharedObserver?.unobserve(el);
+  };
+}
+
 function useInView<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [visible, setVisible] = useState(false);
@@ -41,25 +80,13 @@ function useInView<T extends HTMLElement>() {
     const rect = el.getBoundingClientRect();
     const alreadyOnScreen = rect.top < window.innerHeight && rect.bottom > 0;
 
-    if (alreadyOnScreen || typeof IntersectionObserver === "undefined") {
+    if (alreadyOnScreen) {
       // Deferred so this isn't a synchronous setState in the effect body.
       queueMicrotask(() => setVisible(true));
-      if (typeof IntersectionObserver === "undefined") return;
+      return;
     }
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          setVisible(true);
-          io.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
-    );
-
-    io.observe(el);
-    return () => io.disconnect();
+    return observeOnce(el, () => setVisible(true));
   }, []);
 
   return { ref, visible };

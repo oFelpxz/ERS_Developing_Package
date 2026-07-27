@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { RuleDraw } from "@/components/reveal";
 import { SectionHead } from "@/components/section-head";
+import { MarqueeTrack } from "./marquee-track";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 /**
@@ -48,7 +49,7 @@ export function ClientsMarquee({ t }: { t: Dictionary }) {
       <div className="mt-16 md:mt-20">
         <RuleDraw />
         <div className="relative [mask-image:linear-gradient(to_right,transparent,#000_7%,#000_93%,transparent)]">
-          <div className="marquee-track flex w-max">
+          <MarqueeTrack>
             {LOOP.map((client, i) => (
               <div
                 key={`${client.name}-${i}`}
@@ -64,7 +65,7 @@ export function ClientsMarquee({ t }: { t: Dictionary }) {
                 />
               </div>
             ))}
-          </div>
+          </MarqueeTrack>
         </div>
         <RuleDraw />
       </div>

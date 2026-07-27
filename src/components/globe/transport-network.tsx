@@ -29,6 +29,15 @@ export function TransportNetwork({
 }) {
   const hubExcitation = useRef(new Float32Array(HUBS.length));
 
+  /** Frame-loop scratch space, allocated once. */
+  const scratch = useRef({
+    progress: new Float32Array(ROUTES.length),
+    active: new Float32Array(ROUTES.length),
+    /** Last values uploaded to the GPU, so unchanged frames skip the upload. */
+    lastProgress: new Float32Array(ROUTES.length),
+    lastActive: new Float32Array(ROUTES.length),
+  });
+
   /** Lane scheduler: one active route per lane guarantees the concurrency cap. */
   const lanes = useRef(
     Array.from({ length: Math.max(1, concurrent) }, (_, k) => ({
@@ -293,9 +302,13 @@ export function TransportNetwork({
     const activeBuf = activeAttr.array as Float32Array;
     const excite = hubExcitation.current;
 
-    // Per-route values fan out across that route's vertex span.
-    const progress = new Array(routeMeta.length).fill(0);
-    const active = new Array(routeMeta.length).fill(0);
+    // Per-route values fan out across that route's vertex span. Reused across
+    // frames — allocating two arrays per frame was ~120 short-lived objects a
+    // second, and GC pauses on a mobile CPU land straight in the scroll budget.
+    const progress = scratch.current.progress;
+    const active = scratch.current.active;
+    progress.fill(0);
+    active.fill(0);
 
     g.hubMaterial.uniforms.uTime.value = state.clock.elapsedTime;
 
@@ -349,13 +362,24 @@ export function TransportNetwork({
       }
     }
 
+    // Only touch the buffers when a route actually moved. `needsUpdate = true`
+    // re-uploads the whole attribute to the GPU; doing it unconditionally meant
+    // two full uploads every frame even while the network sat idle.
+    const { lastProgress, lastActive } = scratch.current;
+    let dirty = false;
     for (let r = 0; r < ranges.length; r++) {
+      if (progress[r] === lastProgress[r] && active[r] === lastActive[r]) continue;
       const { start, count } = ranges[r];
       progressBuf.fill(progress[r], start, start + count);
       activeBuf.fill(active[r], start, start + count);
+      lastProgress[r] = progress[r];
+      lastActive[r] = active[r];
+      dirty = true;
     }
-    progressAttr.needsUpdate = true;
-    activeAttr.needsUpdate = true;
+    if (dirty) {
+      progressAttr.needsUpdate = true;
+      activeAttr.needsUpdate = true;
+    }
 
     const attr = g.hubGeometry.getAttribute("aExcite") as THREE.BufferAttribute;
     (attr.array as Float32Array).set(excite);

@@ -83,11 +83,11 @@
 
   body {
     @apply bg-ink-950 text-fg font-sans;
-    /* Atmosphere: purple is depth here and nowhere else. */
-    background-image:
-      radial-gradient(1100px 700px at 78% -8%, rgba(107, 63, 255, 0.09), transparent 62%),
-      radial-gradient(900px 560px at -8% 26%, rgba(30, 91, 255, 0.07), transparent 60%);
-    background-attachment: fixed;
+    /* The atmosphere gradients used to live here with background-attachment:
+       fixed. That makes the backdrop viewport-relative, which means no tile of
+       scrolled content can ever be cached — the whole page re-rasterises on
+       every scroll delta. On mobile that showed up as blank rectangles during
+       fast scroll. It is now a promoted layer; see .atmosphere. */
   }
 
   ::selection {
@@ -315,6 +315,24 @@
    Signature element — the visible column grid.
    One fixed layer, one repeating gradient, zero JS.
    ========================================================================== */
+/* The atmosphere, as its own compositor layer.
+   A promoted fixed element is rasterised once and then merely composited while
+   the page scrolls, which is the whole point: same look as the old fixed
+   background, none of the per-frame repaint. */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1100px 700px at 78% -8%, rgba(107, 63, 255, 0.09), transparent 62%),
+    radial-gradient(900px 560px at -8% 26%, rgba(30, 91, 255, 0.07), transparent 60%);
+  /* Explicit promotion. `translateZ(0)` gets normalised back to a 2D matrix and
+     is not a reliable signal; will-change is. Safe to leave on permanently here
+     because this layer exists for the lifetime of the page and never repaints. */
+  will-change: transform;
+}
+
 .grid-rules {
   position: fixed;
   inset: 0;
@@ -323,19 +341,27 @@
   margin-inline: var(--gutter);
   max-width: 1440px;
   left: 50%;
-  translate: -50% 0;
-  /* Fade the rules out at the very top and bottom so they read as a drawing
-     sheet rather than a hard cage. */
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  /* Only the centring here; promotion is declared separately below. Using the
+     `translate` property alongside this would apply the offset twice. */
+  transform: translate(-50%, 0);
+  will-change: transform;
 }
 
+/* The top/bottom fade is baked into each rule instead of masking the container.
+   A mask on a full-viewport fixed element forces an offscreen composite pass on
+   every frame; a gradient on a 1px-wide span costs nothing. */
 .grid-rules span {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 1px;
-  background: var(--rule);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--rule) 12%,
+    var(--rule) 88%,
+    transparent 100%
+  );
 }
 
 /* ==========================================================================

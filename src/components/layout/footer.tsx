@@ -35,7 +35,11 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
         { label: t.contact.channels.email, href: `mailto:${t.contact.channels.email}` },
         { label: t.contact.channels.phone, href: `tel:${phoneDigits}` },
         { label: "WhatsApp", href: `https://wa.me/${waDigits}`, external: true },
-        { label: "LinkedIn", href: "https://www.linkedin.com", external: true },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/in/ers-digital-consulting-89491030a/",
+          external: true,
+        },
       ],
     },
   ];

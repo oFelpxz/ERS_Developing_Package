@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "ERS Digital Consulting — SAP & Logistics Consulting",
-    "description": "Boutique SAP consulting firm specialized in logistics, transportation and supply chain. Enterprise-grade projects delivered by senior squads."
+    "description": "Boutique SAP consulting firm specialized in logistics, transportation and supply chain. Enterprise-grade projects delivered by senior teams."
   },
   "nav": {
     "solutions": "Solutions",
@@ -14,8 +14,8 @@
   "hero": {
     "eyebrow": "SAP Consulting · Logistics · Digital Transformation",
     "title": "Critical SAP projects.",
-    "titleAccent": "Senior squads deliver.",
-    "subtitle": "Fully senior squads own every project end-to-end — from design to live operation — for companies that cannot afford to get it wrong.",
+    "titleAccent": "Senior teams deliver.",
+    "subtitle": "Fully senior teams own every project end-to-end — from design to live operation — for companies that cannot afford to get it wrong.",
     "ctaPrimary": "Talk to a specialist",
     "ctaSecondary": "See cases"
   },
@@ -25,11 +25,11 @@
   "about": {
     "eyebrow": "About ERS",
     "title": "Connecting technology, data and performance.",
-    "body": "We are a consulting firm specialized in SAP solutions and digital transformation, focused on driving efficiency and integration across business operations. We work on logistics process management and optimization, strategic resource allocation and modernization of corporate environments — with lean squads of senior consultants, delivering the standard of a major integrator, without the overhead.",
+    "body": "We are a consulting firm specialized in SAP solutions and digital transformation, focused on driving efficiency and integration across business operations. We work on logistics process management and optimization, strategic resource allocation and modernization of corporate environments — with lean teams of senior consultants, delivering the standard of a major integrator, without the overhead.",
     "pillars": [
       { "title": "Specialization", "desc": "Vertical focus on SAP TM, BN4L and logistics." },
       { "title": "Seniority", "desc": "100% SAP-certified senior consultants." },
-      { "title": "Execution", "desc": "Lean squads, short cycles, clear governance." },
+      { "title": "Execution", "desc": "Lean teams, short cycles, clear governance." },
       { "title": "Performance", "desc": "Measurable delivery, enterprise-grade, without the big-integrator overhead." }
     ]
   },
@@ -69,7 +69,7 @@
     "steps": [
       { "title": "Diagnosis", "desc": "Process understanding, pain points and SAP maturity assessment." },
       { "title": "Planning", "desc": "Blueprint, scope, timeline and governance." },
-      { "title": "Implementation", "desc": "Configuration, integrations and testing with a senior squad." },
+      { "title": "Implementation", "desc": "Configuration, integrations and testing with a senior team." },
       { "title": "Go-Live", "desc": "Assisted cutover, hypercare and stabilization." },
       { "title": "Continuous Evolution", "desc": "Improvement roadmap, new modules and optimizations." }
     ]
@@ -79,19 +79,23 @@
     "title": "Real projects. Measurable results.",
     "rochalog": {
       "tags": ["Logistics", "SAP TM", "IBM Partnership"],
-      "title": "Rochalog: SAP TM delivered in 8 months with a 3-consultant squad.",
+      "title": "Rochalog: SAP TM delivered in 8 months with a 3-consultant team.",
       "summary": "In strategic partnership with IBM, we designed and implemented the SAP TM solution for Rochalog, optimizing the sale of transportation services and the contracting of road freight — from blueprint to Go-Live and continuous evolution.",
-      "timeline": ["Blueprint", "Configuration", "Go-Live", "Ongoing support"],
-      "goLiveLabel": "Go-Live confirmed",
+      "timeline": [
+        { "label": "Blueprint", "status": "Approved" },
+        { "label": "Configuration", "status": "Completed" },
+        { "label": "Go-Live", "status": "Delivered on schedule" },
+        { "label": "Ongoing support", "status": "Completed with service acceptance" }
+      ],
       "metrics": [
         { "value": "8 months", "label": "from blueprint to Go-Live" },
-        { "value": "2–3", "label": "consultants in the squad" },
+        { "value": "2–3", "label": "consultants on the team" },
         { "value": "End-to-end", "label": "design, cutover and support" }
       ],
       "differentialsTitle": "What set our delivery apart",
       "differentials": [
         "Tailored solution aligned with the SAP standard — no unnecessary customizations.",
-        "Agility with a senior squad — large transformations don't require bloated teams.",
+        "Agility with a senior team — large transformations don't require bloated teams.",
         "Continuous improvement post Go-Live — immediate operational gains."
       ],
       "cta": "Read the full case"
@@ -121,7 +125,7 @@
     "title": "Common questions about how we work.",
     "items": [
       {
-        "q": "How does the lean squad model work?",
+        "q": "How does the lean team model work?",
         "a": "We assemble teams of 2 to 4 senior consultants per project, sized to the real scope — no junior consultants in training or redundant roles. This lowers cost and speeds up decisions without compromising quality."
       },
       {
@@ -134,7 +138,7 @@
       },
       {
         "q": "How does the partnership with IBM work?",
-        "a": "We act as a specialized squad within IBM-led projects, complementing delivery with deep technical expertise in SAP TM and BN4L — as in the Rochalog case."
+        "a": "We act as a specialized team within IBM-led projects, complementing delivery with deep technical expertise in SAP TM and BN4L — as in the Rochalog case."
       },
       {
         "q": "Can we hire just consultant allocation?",

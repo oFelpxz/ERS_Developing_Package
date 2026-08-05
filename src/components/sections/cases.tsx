@@ -11,7 +11,6 @@ import type { Locale } from "@/i18n/locales";
  */
 export function Cases({ locale, t }: { locale: Locale; t: Dictionary }) {
   const c = t.cases.rochalog;
-  const goLiveIndex = c.timeline.indexOf("Go-Live");
 
   // "Rochalog: <rest>" → the wordmark is set separately, so drop the repeat.
   const sepIndex = c.title.indexOf(": ");
@@ -74,30 +73,19 @@ export function Cases({ locale, t }: { locale: Locale; t: Dictionary }) {
             </Reveal>
           </div>
 
-          {/* Delivery sequence */}
+          {/* Delivery sequence — every phase reads as complete. Singling out
+              Go-Live as the only step with a status caption made the whole
+              engagement look mid-flight rather than finished. */}
           <div className="mt-20 md:mt-24">
             <RuleDraw />
             <ol className="grid grid-cols-2 gap-y-8 pt-6 sm:grid-cols-4">
-              {c.timeline.map((step, i) => {
-                const isDone = i < goLiveIndex;
-                const isLive = i === goLiveIndex;
-                return (
-                  <Reveal as="li" key={step} delay={i * 70} className="relative pr-4">
-                    <span
-                      aria-hidden="true"
-                      className={`absolute -top-6 left-0 h-px w-8 ${
-                        isLive ? "bg-brand-blue" : isDone ? "bg-brand-blue/45" : "bg-white/15"
-                      }`}
-                    />
-                    <div
-                      className={`font-mono text-index uppercase ${isLive ? "text-white" : "text-fg-muted"}`}
-                    >
-                      {step}
-                    </div>
-                    {isLive && <div className="mt-2 text-xs text-brand-blue-soft">{c.goLiveLabel}</div>}
-                  </Reveal>
-                );
-              })}
+              {c.timeline.map((step, i) => (
+                <Reveal as="li" key={step.label} delay={i * 70} className="relative pr-4">
+                  <span aria-hidden="true" className="absolute -top-6 left-0 h-px w-8 bg-brand-blue" />
+                  <div className="font-mono text-index uppercase text-white">{step.label}</div>
+                  <div className="mt-2 text-xs text-brand-blue-soft">{step.status}</div>
+                </Reveal>
+              ))}
             </ol>
           </div>
 

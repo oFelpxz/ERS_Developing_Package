@@ -14,12 +14,10 @@ import type { SceneConfig } from "./lib/scene-config";
  */
 export function GlobeCanvas({
   config,
-  reducedMotion,
   active,
   onReady,
 }: {
   config: SceneConfig;
-  reducedMotion: boolean;
   active: boolean;
   onReady: () => void;
 }) {
@@ -27,7 +25,7 @@ export function GlobeCanvas({
   const scroll = useRef(0);
 
   useEffect(() => {
-    if (reducedMotion || config.parallax === 0) return;
+    if (config.parallax === 0) return;
     const onMove = (e: PointerEvent) => {
       pointer.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       pointer.current.y = (e.clientY / window.innerHeight) * 2 - 1;
@@ -36,10 +34,9 @@ export function GlobeCanvas({
     // pointer-events:none, so nav, language picker and CTAs stay clickable.
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
-  }, [reducedMotion, config.parallax]);
+  }, [config.parallax]);
 
   useEffect(() => {
-    if (reducedMotion) return;
     let frame = 0;
     const onScroll = () => {
       if (frame) return;
@@ -56,7 +53,7 @@ export function GlobeCanvas({
       window.removeEventListener("scroll", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [reducedMotion]);
+  }, []);
 
   return (
     <Canvas
@@ -75,7 +72,6 @@ export function GlobeCanvas({
       <Scene
         key={`${config.surfacePoints}-${config.concurrentRoutes}`}
         config={config}
-        reducedMotion={reducedMotion}
         pointer={pointer}
         scroll={scroll}
       />

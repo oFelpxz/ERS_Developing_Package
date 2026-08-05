@@ -15,7 +15,6 @@ const GlobeCanvas = dynamic(() => import("./globe-canvas").then((m) => m.GlobeCa
 
 export function LogisticsGlobe({ className = "" }: { className?: string }) {
   const [tier, setTier] = useState<Tier | null>(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
   const [ready, setReady] = useState(false);
   /** Set after the cross-fade finishes, so the fallback can leave the DOM. */
   const [settled, setSettled] = useState(false);
@@ -34,16 +33,8 @@ export function LogisticsGlobe({ className = "" }: { className?: string }) {
     const resolve = () => setTier(disabled ? null : tierFor(window.innerWidth));
     resolve();
 
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const applyMotion = () => setReducedMotion(motion.matches);
-    applyMotion();
-
     window.addEventListener("resize", resolve, { passive: true });
-    motion.addEventListener("change", applyMotion);
-    return () => {
-      window.removeEventListener("resize", resolve);
-      motion.removeEventListener("change", applyMotion);
-    };
+    return () => window.removeEventListener("resize", resolve);
   }, []);
 
   // Stop rendering entirely when the hero is off screen or the tab is hidden —
@@ -96,12 +87,7 @@ export function LogisticsGlobe({ className = "" }: { className?: string }) {
           className="absolute inset-0 transition-opacity duration-1000"
           style={{ opacity: ready ? 1 : 0 }}
         >
-          <GlobeCanvas
-            config={config}
-            reducedMotion={reducedMotion}
-            active={active}
-            onReady={() => setReady(true)}
-          />
+          <GlobeCanvas config={config} active={active} onReady={() => setReady(true)} />
         </div>
       )}
     </div>

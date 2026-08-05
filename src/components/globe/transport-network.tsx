@@ -21,11 +21,9 @@ const SEGMENTS = 46;
 export function TransportNetwork({
   concurrent,
   maskStrength,
-  reducedMotion,
 }: {
   concurrent: number;
   maskStrength: number;
-  reducedMotion: boolean;
 }) {
   const hubExcitation = useRef(new Float32Array(HUBS.length));
 
@@ -315,50 +313,41 @@ export function TransportNetwork({
     // Excitation decays continuously; route events top it back up.
     for (let i = 0; i < excite.length; i++) excite[i] = Math.max(0, excite[i] - dt * 1.6);
 
-    if (reducedMotion) {
-      // Static composition: a few corridors held fully drawn, nothing moving.
-      for (let i = 0; i < routeMeta.length; i++) {
-        const held = i < concurrent;
-        active[i] = held ? 1 : 0;
-        progress[i] = held ? 1 : 0;
+    for (const lane of lanes.current) {
+      if (lane.members.length === 0) continue;
+      const routeIndex = lane.members[lane.cursor % lane.members.length];
+      const meta = routeMeta[routeIndex];
+      if (!meta) continue;
+
+      lane.t += dt;
+      const travel = meta.duration;
+      const fade = 0.9; // afterglow: the drawn line lingers, then dims
+      // Dwell before the lane picks its next route. Without it the lanes fire
+      // back-to-back and the network reads as busy rather than operating.
+      const hold = travel + fade + 1.4;
+
+      if (lane.t < 0) {
+        active[routeIndex] = 0;
+        continue;
       }
-    } else {
-      for (const lane of lanes.current) {
-        if (lane.members.length === 0) continue;
-        const routeIndex = lane.members[lane.cursor % lane.members.length];
-        const meta = routeMeta[routeIndex];
-        if (!meta) continue;
 
-        lane.t += dt;
-        const travel = meta.duration;
-        const fade = 0.9; // afterglow: the drawn line lingers, then dims
-        // Dwell before the lane picks its next route. Without it the lanes fire
-        // back-to-back and the network reads as busy rather than operating.
-        const hold = travel + fade + 1.4;
+      const p = lane.t / travel;
+      if (p <= 1) {
+        if (p < 0.02) excite[meta.origin] = Math.max(excite[meta.origin], 1);
+        progress[routeIndex] = p;
+        active[routeIndex] = Math.min(1, lane.t / 0.35);
+      } else {
+        // Arrival flare, then fade the arc out.
+        if (lane.t - dt <= travel) excite[meta.destination] = Math.max(excite[meta.destination], 1.2);
+        progress[routeIndex] = 1;
+        active[routeIndex] = Math.max(0, 1 - (lane.t - travel) / fade);
+      }
 
-        if (lane.t < 0) {
-          active[routeIndex] = 0;
-          continue;
-        }
-
-        const p = lane.t / travel;
-        if (p <= 1) {
-          if (p < 0.02) excite[meta.origin] = Math.max(excite[meta.origin], 1);
-          progress[routeIndex] = p;
-          active[routeIndex] = Math.min(1, lane.t / 0.35);
-        } else {
-          // Arrival flare, then fade the arc out.
-          if (lane.t - dt <= travel) excite[meta.destination] = Math.max(excite[meta.destination], 1.2);
-          progress[routeIndex] = 1;
-          active[routeIndex] = Math.max(0, 1 - (lane.t - travel) / fade);
-        }
-
-        if (lane.t >= hold) {
-          active[routeIndex] = 0;
-          progress[routeIndex] = 0;
-          lane.cursor++;
-          lane.t = 0;
-        }
+      if (lane.t >= hold) {
+        active[routeIndex] = 0;
+        progress[routeIndex] = 0;
+        lane.cursor++;
+        lane.t = 0;
       }
     }
 

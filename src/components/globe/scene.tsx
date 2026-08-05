@@ -14,14 +14,13 @@ const MASK_STRENGTH = 0.82;
 
 interface SceneProps {
   config: SceneConfig;
-  reducedMotion: boolean;
   /** Normalised pointer, -1..1, already smoothed by the host. */
   pointer: React.RefObject<{ x: number; y: number }>;
   /** 0 at the top of the hero, 1 when it has scrolled away. */
   scroll: React.RefObject<number>;
 }
 
-export function Scene({ config, reducedMotion, pointer, scroll }: SceneProps) {
+export function Scene({ config, pointer, scroll }: SceneProps) {
   const globe = useRef<THREE.Group>(null);
   const rig = useRef<THREE.Group>(null);
   const spin = useRef(0);
@@ -32,7 +31,7 @@ export function Scene({ config, reducedMotion, pointer, scroll }: SceneProps) {
     if (globe.current) {
       // Automatic rotation is deliberately near-imperceptible: the opening
       // framing on Europe/Africa has to survive for a long time.
-      if (!reducedMotion) spin.current += dt * 0.018;
+      spin.current += dt * 0.018;
       globe.current.rotation.y = BASE_ROTATION_Y + spin.current;
     }
 
@@ -77,11 +76,7 @@ export function Scene({ config, reducedMotion, pointer, scroll }: SceneProps) {
           pointSize={config.pointSize}
           maskStrength={MASK_STRENGTH}
         />
-        <TransportNetwork
-          concurrent={config.concurrentRoutes}
-          maskStrength={MASK_STRENGTH}
-          reducedMotion={reducedMotion}
-        />
+        <TransportNetwork concurrent={config.concurrentRoutes} maskStrength={MASK_STRENGTH} />
       </group>
       <OrbitalSystem count={config.orbitals} maskStrength={MASK_STRENGTH} />
     </group>

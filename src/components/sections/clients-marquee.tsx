@@ -38,7 +38,7 @@ export function ClientsMarquee({ t }: { t: Dictionary }) {
       <div className="shell">
         <div className="grid12">
           <div className="col-span-4 md:col-span-8 lg:col-span-6">
-            <SectionHead index="04" kicker={t.clients.eyebrow} title={t.clients.title} lead={t.clients.subtitle} />
+            <SectionHead index="04" kicker={t.clients.eyebrow} title={t.clients.title} />
           </div>
         </div>
       </div>

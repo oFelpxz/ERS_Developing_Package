@@ -5,12 +5,14 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/locales";
 
 /**
- * Official SAP credential badge, trimmed of its dead white margin (the source
- * file was ~49% empty canvas, which is what made it read as a white slab).
- * The artwork itself is untouched — it certifies something real.
+ * Official SAP credential badge (SAP S/4HANA Cloud Private Edition,
+ * Transportation Management). Square, edge-to-edge artwork with real alpha on
+ * its rounded corners — kept as PNG, not flattened to JPG, so those corners
+ * stay transparent against the dark credential plate instead of showing a
+ * white square. Source: assets-src/certifications/tm-badge.png.
  */
-const SAP_BADGE_SRC = "/certifications/sap-badge.jpg";
-const SAP_BADGE_SIZE = { width: 345, height: 339 };
+const SAP_BADGE_SRC = "/certifications/tm-badge.png";
+const SAP_BADGE_SIZE = { width: 480, height: 480 };
 
 export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
   const year = new Date().getFullYear();

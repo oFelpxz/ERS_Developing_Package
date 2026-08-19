@@ -13,9 +13,9 @@
   },
   "hero": {
     "eyebrow": "SAP Consulting · Logistics · Digital Transformation",
-    "title": "Critical SAP projects.",
-    "titleAccent": "Senior teams deliver.",
-    "subtitle": "Fully senior teams own every project end-to-end — from design to live operation — for companies that cannot afford to get it wrong.",
+    "title": "Consulting specialized in",
+    "titleAccent": "SAP Transportation Management.",
+    "subtitle": "A 100% SAP-certified team owns every project end-to-end — from design to live operation — for companies that cannot afford to get it wrong.",
     "ctaPrimary": "Talk to a specialist",
     "ctaSecondary": "See cases"
   },
@@ -103,8 +103,7 @@
   },
   "clients": {
     "eyebrow": "Who trusts ERS",
-    "title": "Companies that trust our delivery.",
-    "subtitle": "We serve leaders in logistics, transportation, industry and retail.",
+    "title": "Clients and partners.",
     "logos": ["IBM", "Talke", "Bridgestone", "Rochalog", "Braskem", "Volkswagen", "InBetta", "Rivelli", "SimpleWMS", "Serangeli", "T-Systems", "Coopercitrus"]
   },
   "certifications": {
@@ -113,7 +112,7 @@
     "certsTitle": "SAP Certifications",
     "partnersTitle": "Strategic partners",
     "certs": [
-      "SAP Certified Application Associate — TM",
+      "SAP S/4HANA Cloud Private Edition, Transportation Management — Certified",
       "SAP Certified Development Associate",
       "SAP Activate Project Manager",
       "SAP S/4HANA Logistics"
